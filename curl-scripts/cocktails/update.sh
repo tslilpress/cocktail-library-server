@@ -12,10 +12,11 @@ curl "${API}${URL_PATH}/${ID}" \
   "cocktail": {
     "name": "'"${NAME}"'",
     "preparation": "'"${PREP}"'",
-    "serveIn": "'"${SERVEIN}"'",
-    "howToServe": "'"${HOWTOSERVE}"'",
+    "serveIn": "'"${IN}"'",
+    "howToServe": "'"${HOW}"'",
+    "garnish": "'"${GARNISH}"'",
     "owner": "'"${OWNER}"'",
-    "note": "'"${NOTE}"'",
+    "note": "'"${NOTE}"'"
   }
 }'
 

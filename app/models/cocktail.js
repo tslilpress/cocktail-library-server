@@ -19,6 +19,10 @@ const cocktailSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  garnish: {
+    type: String,
+    required: false
+  },
   ingredients: [ingredientSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
