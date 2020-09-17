@@ -11,7 +11,8 @@ curl "${API}${URL_PATH}" \
   --data '{
     "ingredient": {
       "title": "'"${TITLE}"'",
-      "unit": "'"${UNIT}"'"
+      "unit": "'"${UNIT}"'",
+      "cocktailId": "'"${COID}"'"
     }
   }'
 
