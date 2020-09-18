@@ -29,7 +29,8 @@ const router = express.Router()
 
 // INDEX
 router.get('/cocktails', requireToken, (req, res, next) => {
-  Cocktail.find()
+  const userId = req.user._id
+  Cocktail.find({owner: userId})
     .populate('owner')
     .then(cocktails => {
       // cocktails will be an array of Mongoose documents
@@ -37,18 +38,26 @@ router.get('/cocktails', requireToken, (req, res, next) => {
       // apply `.toObject` to each one
       return cocktails.map(cocktail => cocktail.toObject())
     })
-    // respond with status 200 and JSON
+  // respond with status 200 and JSON
     .then(cocktails => res.status(200).json({ cocktails }))
-    // if an error occurs, pass it to the handler
+  // if an error occurs, pass it to the handler
     .catch(next)
 })
 
 // SHOW
 router.get('/cocktails/:id', requireToken, (req, res, next) => {
   // req.params.id will be set based on the `:id` in the route
+
   Cocktail.findById(req.params.id)
     .populate('owner')
     .then(handle404)
+    .then(cocktail => {
+      // pass the `req` object and the Mongoose record to `requireOwnership`
+      // it will throw an error if the current user isn't the owner
+      requireOwnership(req, cocktail)
+
+      return cocktail
+    })
     // if `findById` is succesful, respond with 200 and "cocktail" JSON
     .then(cocktail => res.status(200).json({ cocktail: cocktail.toObject() }))
     // if an error occurs, pass it to the handler
@@ -57,12 +66,12 @@ router.get('/cocktails/:id', requireToken, (req, res, next) => {
 
 // CREATE
 router.post('/cocktails', requireToken, (req, res, next) => {
-  // set owner of new example to be current user
+  // set owner of new cocktail to be current user
   req.body.cocktail.owner = req.user.id
 
   Cocktail.create(req.body.cocktail)
   // console.log(req.body.cocktail)
-    // respond to succesful `create` with status 201 and JSON of new "example"
+    // respond to succesful `create` with status 201 and JSON of new "cocktail"
     .then(cocktail => {
       res.status(201).json({ cocktail: cocktail.toObject() })
     })
