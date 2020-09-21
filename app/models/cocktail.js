@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-const ingredientSchema = require('./ingredient')
+// const ingredientSchema = require('./ingredient')
 
 const cocktailSchema = new mongoose.Schema({
   name: {
@@ -23,7 +23,11 @@ const cocktailSchema = new mongoose.Schema({
     type: String,
     required: false
   },
-  ingredients: [ingredientSchema],
+  ingredients: {
+    type: String,
+    required: true
+  },
+  // ingredients: [ingredientSchema],
   owner: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'

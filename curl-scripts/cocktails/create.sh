@@ -15,6 +15,7 @@ curl "${API}${URL_PATH}" \
       "serveIn": "'"${IN}"'",
       "howToServe": "'"${HOW}"'",
       "garnish": "'"${GARNISH}"'",
+      "ingredients": "'"${INGRED}"'",
       "owner": "'"${OWNER}"'",
       "note": "'"${NOTE}"'"
     }
