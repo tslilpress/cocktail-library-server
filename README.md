@@ -34,7 +34,7 @@ The process was pretty simple since I had plenty of practice and examples that t
 ### Unsolved Problems
 I would like to eventually make it possible for a user to search by any key in the cocktail
 object, for example by name of cocktail, ingredients or even by the garnish.
-i would also like to create eventually use the ingredient schema so it could be updated separately
+I would also like to eventually use the ingredient schema so it could be updated separately
 than the main document.
 
 ### ERD 
