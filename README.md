@@ -38,3 +38,4 @@ i would also like to create eventually use the ingredient schema so it could be 
 than the main document.
 
 ### ERD 
+![Cocktail app ERD](https://user-images.githubusercontent.com/68870466/94321729-74372080-ff5e-11ea-8dc9-eda549a33524.jpg)
