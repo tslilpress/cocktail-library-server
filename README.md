@@ -4,6 +4,10 @@ This is the server side for The Cocktail Library application. Users can create, 
 collection, update, and delete cocktail collections. Built with node.js, express, mongoDB and mongoose.
 This server interacts with this single page application [The Cocktail Library]( https://tslilpress.github.io/cocktail-library-client/). It's created as my second project for General Assembly.
 
+## Important LInks
+[Client side app repo on git hub](https://github.com/tslilpress/cocktail-library-client)----
+[Client side app deployed site](https://tslilpress.github.io/cocktail-library-client/)
+
 ## Planning Story
 I started by creating my Cocktail Schema as well as a separate Ingredient Schema that I later
 decided not to use (I might use it in V2). Then created the cURL scripts for the different requests
